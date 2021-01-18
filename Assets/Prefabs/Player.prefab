@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 3079137231775358895}
   - component: {fileID: 3079137231775358894}
   - component: {fileID: 4912634988109118645}
+  - component: {fileID: 2924550536142871161}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -258,6 +259,7 @@ MonoBehaviour:
   maxJumps: 2
   jumpForce: {x: 0, y: 10, z: 0}
   bounceMultipler: 30
+  bounce: {fileID: 2924550536142871161}
 --- !u!114 &4912634988109118645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +277,17 @@ MonoBehaviour:
   sensitivity: 50
   explosionImpact: 10
   upwardsModifier: 1
+--- !u!114 &2924550536142871161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831356111236242371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159047fa3b56e3e418281064839fef6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 3079137231775358895}
+  bounceMultipler: 30
