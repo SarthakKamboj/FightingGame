@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public int maxJumps = 2;
     public Vector3 jumpForce;
     public float bounceMultipler = 10f;
+    public Bounce bounce;
 
     int jumpsLeft;
     float horizontal = 0f, vertical = 0f;
@@ -38,20 +39,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col) {
+        Vector3 normalVec = col.contacts[0].normal;
         if (col.collider.tag == "Ground") {
-            Vector3 normalVec = col.contacts[0].normal;
             if(normalVec == Vector3.up) {
                 jumpsLeft = maxJumps;
             } else {
-                rb.velocity = Vector3.Scale(Vector3.one - Abs(normalVec), rb.velocity);
-                rb.angularVelocity = Vector3.Scale(Vector3.one - Abs(normalVec), rb.angularVelocity);
-                rb.AddForce(normalVec * bounceMultipler, ForceMode.VelocityChange);
+                bounce.BounceGO(normalVec);
             }
+        } else if (col.collider.tag == "Enemy") {
+            bounce.BounceGO(normalVec);
         }
     }
 
-    Vector3 Abs(Vector3 vec) {
-        return new Vector3(Mathf.Abs(vec.x), Mathf.Abs(vec.y), Mathf.Abs(vec.z));
-    }
     
 }
