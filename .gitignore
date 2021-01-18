@@ -1,0 +1,12 @@
+.vscode
+Assembly-CSharp.csproj
+Fight.sln
+Library
+Logs
+obj
+Packages
+ProjectSettings
+Temp
+**/*.meta
+.gitignore.swp
+
