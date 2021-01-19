@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(jumpForce, ForceMode.VelocityChange);
             shouldJump = false;
             jumpsLeft -= 1;
-            Debug.Log("jumps left: " + jumpsLeft);
             StartCoroutine(HandleStretchAndSquash());
         }
 
@@ -56,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     IEnumerator HandleStretchAndSquash() {
-        yield return new WaitForSeconds(Time.deltaTime * 2f);
+        yield return new WaitForSeconds(Time.fixedDeltaTime * 2f);
         maxYVel = rb.velocity.y * 1.5f;
     }
 
@@ -67,16 +66,20 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter(Collision col) {
         Vector3 normalVec = col.contacts[0].normal;
         if (col.collider.tag == "Ground") {
-            if(normalVec == Vector3.up && rb.velocity.y < 0f) {
-                jumpsLeft = maxJumps;
-                Debug.Log("restored jumps left");
-            } else {
-                bounce.BounceGO(normalVec);
-            }
+            HandleGroundCol(normalVec);
         } else if (col.collider.tag == "Enemy") {
             bounce.BounceGO(normalVec);
         }
     }
 
+    void HandleGroundCol(Vector3 normalVec) {
+        if (normalVec == Vector3.up) {
+            if (rb.velocity.y <= 0f) {
+                jumpsLeft = maxJumps;
+            }
+        } else {
+            bounce.BounceGO(normalVec);
+        }
+    }
     
 }
