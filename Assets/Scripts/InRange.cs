@@ -4,17 +4,26 @@ public class InRange : MonoBehaviour
 {
     public GameObject InRangeGO;
     bool inRange = false;
-    public void EnemyInRange() {
+    Rigidbody rb;
+
+    void Start() {
+        rb = GetComponent<Rigidbody>();
+    }
+    public void GameObjectInRange() {
         inRange = true;
         InRangeGO.SetActive(inRange);
-        GetComponent<Rigidbody>().interpolation = RigidbodyInterpolation.Interpolate;
+        if (rb) {
+            rb.interpolation = RigidbodyInterpolation.Interpolate;
+        }
     }
 
     void Update() {
         if (inRange) {
             InRangeGO.SetActive(false);
             inRange = false;
-            GetComponent<Rigidbody>().interpolation = RigidbodyInterpolation.None;
+            if (rb) {
+                rb.interpolation = RigidbodyInterpolation.None;
+            }
         }
     }
 }

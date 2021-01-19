@@ -50,7 +50,6 @@ GameObject:
   - component: {fileID: 8613599113133197858}
   - component: {fileID: 8613599113133197917}
   - component: {fileID: 1241532228}
-  - component: {fileID: 6147940925876522869}
   - component: {fileID: 7708455335076952641}
   m_Layer: 10
   m_Name: PlayerMesh
@@ -186,6 +185,9 @@ MonoBehaviour:
   sensitivity: 50
   explosionImpact: 10
   upwardsModifier: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2560
 --- !u!114 &8613599113133197858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,19 +236,6 @@ MonoBehaviour:
   playerMovement: {fileID: 8613599113133197856}
   playerRb: {fileID: 8613599113133197857}
   powerUpDuration: 10
---- !u!114 &6147940925876522869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8613599113133197861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50e6f729c0c39ff4da3ea51d463ea7c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHealth: {fileID: 7708455335076952641}
 --- !u!114 &7708455335076952641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abb7359dda52474697644489a024036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  healthBar: {fileID: 0}
+  minHealth: 0
   maxHealth: 100
 --- !u!1 &8613599114014296404
 GameObject:

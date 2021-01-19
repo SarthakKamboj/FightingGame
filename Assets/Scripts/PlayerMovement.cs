@@ -44,9 +44,7 @@ public class PlayerMovement : MonoBehaviour
             if (rb.velocity.magnitude <= maxVelocity) {
                 rb.AddForce(forceDir.normalized * forceMultipler * Time.deltaTime, ForceMode.VelocityChange);
             } else {
-                // rb.velocity = rb.velocity.normalized * maxVelocity;
                 rb.AddForce(-rb.velocity.normalized);
-                // rb.AddForce(forceDir.normalized * forceMultipler * Time.deltaTime, ForceMode.VelocityChange);
             }
         }
 

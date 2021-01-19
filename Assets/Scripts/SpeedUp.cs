@@ -38,9 +38,9 @@ public class SpeedUp : MonoBehaviour
 
     IEnumerator RemoveSpeedUp(float speedMultiplier) {
         yield return new WaitForSeconds(powerUpDuration);
-        spedUp = false;
         playerMovement.maxVelocity *= 1/speedMultiplier;
         playerMovement.forceMultipler *= 1/speedMultiplier;
+        spedUp = false;
     }
 
     void HealthPowerUp() {
