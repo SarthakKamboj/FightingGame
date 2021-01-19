@@ -8,16 +8,17 @@ public class PlayerShoot : MonoBehaviour
     public float explosionImpact = 100f;
     public float upwardsModifier = 10f;
     float verticalMouseOffset = 0f;
+    Vector3 aimVec;
 
     void Update() {
         verticalMouseOffset += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
     }
 
     void LateUpdate() {
-        Vector3 aimVec = GetAimVec();
-        RenderLine(aimVec);
+        aimVec = GetAimVec();
+        RenderLine();
         if (Input.GetButtonDown("Fire1")) {
-            Shoot(aimVec);
+            Shoot();
         }
     }
 
@@ -27,19 +28,28 @@ public class PlayerShoot : MonoBehaviour
         return Quaternion.AngleAxis(verticalMouseOffset, rightVec) * forwardVec;
     }
     
-    void RenderLine(Vector3 aimVec) {
+    void RenderLine() {
         Vector3[] positions = new Vector3[2] { transform.position, transform.position + aimVec.normalized * range };
         shootRay.SetPositions(positions);
-    }
 
-    void Shoot(Vector3 aimVec) {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, aimVec.normalized, out hit, range)) {
-            Collider collider = hit.collider.gameObject.GetComponent<Collider>(); 
-            Rigidbody goRb = hit.rigidbody;
-            if (collider && goRb) {
+            Collider collider = hit.collider; 
+            if (collider && collider.tag == "Enemy") {
+                collider.gameObject.GetComponent<InRange>().EnemyInRange();
+            }
+        }
+    }
+
+    void Shoot() {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, aimVec.normalized, out hit, range)) {
+            Collider collider = hit.collider;
+            if (collider && collider.tag == "Enemy") {
+                Rigidbody goRb = hit.rigidbody;
                 goRb.AddExplosionForce(explosionImpact, hit.point, collider.bounds.extents.x, upwardsModifier, ForceMode.VelocityChange);
             }
         }
     }
+
 }
