@@ -1,14 +1,17 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
+    public Animator animator;
+    public float maxVelocity = 100f;
     public float forceMultipler = 10f;
     public int maxJumps = 2;
     public Vector3 jumpForce;
     public float bounceMultipler = 10f;
     public Bounce bounce;
-
+    float maxYVel = 10f;
     int jumpsLeft;
     float horizontal = 0f, vertical = 0f;
     bool shouldJump = false;
@@ -20,29 +23,53 @@ public class PlayerMovement : MonoBehaviour
     void Update() {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        shouldJump = Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0;
-
-         if (shouldJump) {
-            rb.AddForce(jumpForce, ForceMode.VelocityChange);
-            jumpsLeft -= 1;
-            shouldJump = false;
+        if (!shouldJump) {
+            shouldJump = Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0;
         }
     }
 
     void FixedUpdate() {
         Vector3 inputVec = new Vector3(horizontal, 0f, vertical);
+        
+        if (shouldJump) {
+            rb.AddForce(jumpForce, ForceMode.VelocityChange);
+            shouldJump = false;
+            jumpsLeft -= 1;
+            Debug.Log("jumps left: " + jumpsLeft);
+            StartCoroutine(HandleStretchAndSquash());
+        }
+
         if (Mathf.Abs(inputVec.magnitude) >= 0.1f) {
             float angle = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y; 
             Vector3 forceDir = Quaternion.Euler(new Vector3(0f,angle,0f)) * Vector3.forward;
-            rb.AddForce(forceDir.normalized * forceMultipler * Time.deltaTime, ForceMode.VelocityChange);
+            if (rb.velocity.magnitude <= maxVelocity) {
+                rb.AddForce(forceDir.normalized * forceMultipler * Time.deltaTime, ForceMode.VelocityChange);
+            } else {
+                rb.velocity = rb.velocity.normalized * maxVelocity;
+            }
         }
+
+    }
+
+    void LateUpdate() {
+        SetJumpStatus();
+    }
+
+    IEnumerator HandleStretchAndSquash() {
+        yield return new WaitForSeconds(Time.deltaTime * 2f);
+        maxYVel = rb.velocity.y * 1.5f;
+    }
+
+    void SetJumpStatus() {
+        animator.SetFloat("JumpStatus", rb.velocity.y / maxYVel);
     }
 
     void OnCollisionEnter(Collision col) {
         Vector3 normalVec = col.contacts[0].normal;
         if (col.collider.tag == "Ground") {
-            if(normalVec == Vector3.up) {
+            if(normalVec == Vector3.up && rb.velocity.y < 0f) {
                 jumpsLeft = maxJumps;
+                Debug.Log("restored jumps left");
             } else {
                 bounce.BounceGO(normalVec);
             }
