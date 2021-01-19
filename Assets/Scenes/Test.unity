@@ -199,8 +199,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17665135}
-  m_LocalRotation: {x: 0.119341336, y: 0.5961064, z: -0.090182245, w: 0.7888485}
-  m_LocalPosition: {x: -3.7369823, y: -7.1799994, z: 12.364512}
+  m_LocalRotation: {x: 0.11934137, y: 0.5961064, z: -0.090182275, w: 0.78884846}
+  m_LocalPosition: {x: -3.7369814, y: -7.1799994, z: 12.364512}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -463,7 +463,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741830881}
-  m_LocalRotation: {x: 0.10501082, y: 0.5976443, z: -0.07935317, w: 0.7908837}
+  m_LocalRotation: {x: 0.10501084, y: 0.5976443, z: -0.07935317, w: 0.7908837}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -627,26 +627,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1241532219 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8613599113133197861, guid: d959fd92de55246489b7a12ccf25a8ae,
-    type: 3}
-  m_PrefabInstance: {fileID: 8613599114039184670}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1241532228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241532219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea31e7754cda52d4d85e417669c25913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
-  powerUpDuration: 10
 --- !u!1 &1244641554
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244641554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7369823, y: -7.1799994, z: 12.364512}
+  m_LocalPosition: {x: -3.7369814, y: -7.1799994, z: 12.364512}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1624661218}
@@ -980,7 +960,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624661216}
-  m_LocalRotation: {x: 0.13367034, y: 0.5943674, z: -0.10101018, w: 0.7865473}
+  m_LocalRotation: {x: 0.13367034, y: 0.5943674, z: -0.10101019, w: 0.7865473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1054,7 +1034,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656079899}
-  m_LocalRotation: {x: 0.119341336, y: 0.5961064, z: -0.09018223, w: 0.7888485}
+  m_LocalRotation: {x: 0.11934135, y: 0.5961064, z: -0.090182245, w: 0.7888486}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1154,6 +1134,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &919132147929749917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8230815317636613775, guid: 195b186947f96b0488155f4cb5364901,
+    type: 3}
+  m_PrefabInstance: {fileID: 9149294904792162066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &919132147929749918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147929749917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05174db8c9210f14db481834b329305a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthIncrease: 0
 --- !u!4 &3079137231775358896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6715689747396334254, guid: d959fd92de55246489b7a12ccf25a8ae,
@@ -1225,7 +1224,7 @@ PrefabInstance:
     - target: {fileID: 5388117739895686652, guid: d58cffd017e0e76438997ee58b6e13f9,
         type: 3}
       propertyPath: m_Name
-      value: Speed Up
+      value: Speed Up Power Up
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d58cffd017e0e76438997ee58b6e13f9, type: 3}
@@ -1470,7 +1469,7 @@ PrefabInstance:
     - target: {fileID: 8230815317636613775, guid: 195b186947f96b0488155f4cb5364901,
         type: 3}
       propertyPath: m_Name
-      value: Health
+      value: Health Power Up
       objectReference: {fileID: 0}
     - target: {fileID: 8751173851882413109, guid: 195b186947f96b0488155f4cb5364901,
         type: 3}

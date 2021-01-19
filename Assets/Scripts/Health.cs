@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int health = 100;
+    [HideInInspector]
+    public int health;
+    public int maxHealth = 100;
     void Start()
     {
-        
+        health = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

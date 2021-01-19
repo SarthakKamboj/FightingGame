@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5682893837210243984}
   - component: {fileID: 7582169083571644250}
   - component: {fileID: 9149294905567099868}
+  - component: {fileID: 919132147929749918}
   m_Layer: 0
   m_Name: Health
   m_TagString: HealthPowerUp
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8230815317636613775}
-  m_LocalRotation: {x: -0, y: -0, z: 0.069959424, w: 0.9975499}
+  m_LocalRotation: {x: 0, y: 0, z: 0.06995671, w: 0.99755}
   m_LocalPosition: {x: 12.785047, y: -11.110676, z: 16.853}
   m_LocalScale: {x: 0.68767565, y: 0.68767565, z: 0.68767565}
   m_Children: []
@@ -93,3 +94,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.188927, y: 1.6688049, z: 1.1669732}
   m_Center: {x: 0.0070099826, y: 0, z: 0.009159773}
+--- !u!114 &919132147929749918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8230815317636613775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05174db8c9210f14db481834b329305a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthIncrease: 20

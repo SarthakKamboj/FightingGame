@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HealthIncrease : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Health playerHealth;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnTriggerEnter(Collider collider) {
+        if (collider.tag == "HealthPowerUp") {
+            int increase = collider.gameObject.GetComponent<HealthPowerUp>().healthIncrease;
+            playerHealth.health = (int) Mathf.Clamp(playerHealth.health+increase, 0f, playerHealth.maxHealth);
+            Destroy(collider.gameObject);
+        }
     }
 }
