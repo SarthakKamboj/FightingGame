@@ -12,7 +12,6 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        Debug.Log(rb.velocity);
         if (rb.velocity.magnitude > maxSpeed) {
             rb.AddForce(-moveVec * 0.1f, ForceMode.VelocityChange);
         } else {
