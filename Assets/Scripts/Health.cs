@@ -46,7 +46,6 @@ public class Health : MonoBehaviour
         if (collider.tag == "HealthPowerUp") {
             int increase = collider.gameObject.GetComponent<HealthPowerUp>().healthIncrease;
             IncreaseHealth(increase);
-            Destroy(collider.gameObject);
         }
     }
 

@@ -7,8 +7,8 @@ public class HitPowerUp : MonoBehaviour
 
     void OnTriggerEnter(Collider collider) {
         if (IsPowerUp(collider.gameObject)) {
-            Debug.Log("power up hit");
             score.scoreDecreaseMultiplier += 1;
+            Destroy(collider.gameObject);
         }
     }
 

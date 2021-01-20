@@ -8,7 +8,6 @@ public class EnemyMovement : MonoBehaviour
     public int damage;
     Vector3 moveVec;
 
-
     void FixedUpdate() {
         if (rb.velocity.magnitude > maxSpeed) {
             rb.AddForce(-moveVec * 0.1f, ForceMode.VelocityChange);
@@ -27,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
 
         GenNewMoveVec();
     }
+
 
     void HandleGroundCol(Vector3 normalVec) {
         if(normalVec != Vector3.up) {

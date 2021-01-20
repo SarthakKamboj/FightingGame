@@ -23,8 +23,6 @@ public class SpeedUp : MonoBehaviour
         if (collider.tag == "SpeedPowerUp") {
             HandleSpeedPowerUp(collider.gameObject);
         }
-
-        Destroy(collider.gameObject);
     }
 
     void HandleSpeedPowerUp(GameObject go) {
