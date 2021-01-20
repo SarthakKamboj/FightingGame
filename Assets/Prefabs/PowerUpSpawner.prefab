@@ -56,6 +56,10 @@ MonoBehaviour:
       type: 3}
     maxInstances: 1
     curNumInstances: 0
-  spawnPointsAvailable: {fileID: 0}
-  timeBetweenPowerUps: 1
+  spawnAreaPadding: 2
+  numSpawnPoints: 7
+  spawnPointPrefab: {fileID: 977113369156102294, guid: 41b0f07a358e92f47b502ed76f1e7261,
+    type: 3}
+  ground: {fileID: 0}
+  timeBetweenPowerUps: 3
   probOfSpawningPowerUp: 0.2

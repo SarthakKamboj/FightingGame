@@ -6,8 +6,13 @@ public class SpawnPowerUps : MonoBehaviour
     [SerializeField]
     private List<PowerUpHandler> powerUpHandlers;
 
-    [Tooltip("This must a GameObject containing all the spawn points")]
-    public GameObject spawnPointsAvailable;
+    // [Tooltip("This must a GameObject containing all the spawn points")]
+    // public GameObject spawnPointsAvailable;
+    public float spawnAreaPadding = 2f;
+    public int numSpawnPoints = 7;
+    public GameObject spawnPointPrefab;
+    public GameObject ground;
+    public float yPadding = 2f;
     [SerializeField]
     float timeBetweenPowerUps = 1f;
     [SerializeField]
@@ -21,8 +26,26 @@ public class SpawnPowerUps : MonoBehaviour
         unoccupiedSpawnPoints = new List<Transform>();
         activePowerUps = new List<ActivePowerUp>();
 
-        foreach(Transform child in spawnPointsAvailable.transform) {
-            unoccupiedSpawnPoints.Add(child);
+        GenerateSpawnPoints();
+
+    }
+
+    void GenerateSpawnPoints() {
+        float minX = ground.transform.Find("WallLeft").transform.position.x + spawnAreaPadding;
+        float maxX = ground.transform.Find("WallRight").transform.position.x - spawnAreaPadding;
+        float floorY = ground.transform.Find("Floor").transform.position.y;
+        float minZ = ground.transform.Find("WallBack").transform.position.z + spawnAreaPadding;
+        float maxZ = ground.transform.Find("WallFront").transform.position.z - spawnAreaPadding;
+
+
+        while (numSpawnPoints > 0) {
+            Vector3 randomSpawnPointPos = new Vector3(Random.Range(minX, maxX), floorY + yPadding, Random.Range(minZ, maxZ));
+            GameObject spawnPoint = new GameObject();
+            spawnPoint.name = "SpawnPoint";
+            spawnPoint.transform.position = randomSpawnPointPos;
+            spawnPoint.transform.SetParent(transform, true);
+            unoccupiedSpawnPoints.Add(spawnPoint.transform);
+            numSpawnPoints -= 1;
         }
     }
 
@@ -66,7 +89,6 @@ public class SpawnPowerUps : MonoBehaviour
         activePowerUps.Add(new ActivePowerUp(powerUpGO, spawnPoint, powerUpHandler));
 
         powerUpHandler.curNumInstances += 1;
-        Debug.Log("spawned power up");
     }
 }
 

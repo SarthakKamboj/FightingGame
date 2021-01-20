@@ -9,4 +9,5 @@ ProjectSettings
 Temp
 **/*.meta
 .gitignore.swp
+Builds
 
