@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8681714471755009210, guid: e1ca239c09722744f90cf715f3658390,
     type: 3}
-  numEnemies: 1
+  numEnemies: 2
   ground: {fileID: 0}
   spawnAreaPadding: 2
   randomTransform: {fileID: 0}

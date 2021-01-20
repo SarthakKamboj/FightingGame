@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4182677741628036466
 Transform:
   m_ObjectHideFlags: 0
@@ -363,7 +363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   minHealth: 0
-  maxHealth: 100
+  maxHealth: 30
+  gameManager: {fileID: 0}
 --- !u!114 &278495579
 MonoBehaviour:
   m_ObjectHideFlags: 0

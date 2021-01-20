@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 5529508024526893067}
   - component: {fileID: 6354506131115999243}
   - component: {fileID: 5832146395384120377}
+  - component: {fileID: 2300865038290643291}
   m_Layer: 11
   m_Name: Shield Power Up
   m_TagString: ShieldPowerUp
@@ -187,3 +188,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6638355, y: 3.8046992, z: 1.9999999}
   m_Center: {x: 0, y: 0.90234965, z: 0}
+--- !u!114 &2300865038290643291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6321996353978716638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de8ae5444907cf144aaee5172d83de0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationsPerSecond: 0.5
