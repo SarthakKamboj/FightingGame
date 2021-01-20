@@ -54,8 +54,9 @@ public class PlayerShoot : MonoBehaviour
         if (Physics.Raycast(transform.position, aimVec.normalized, out hit, range)) {
             Collider collider = hit.collider;
             if (collider && collider.tag == "Enemy") {
-                Rigidbody goRb = hit.rigidbody;
-                goRb.AddExplosionForce(explosionImpact, hit.point, collider.bounds.extents.x, upwardsModifier, ForceMode.VelocityChange);
+                Destroy(collider.gameObject);
+                // Rigidbody goRb = hit.rigidbody;
+                // goRb.AddExplosionForce(explosionImpact, hit.point, collider.bounds.extents.x, upwardsModifier, ForceMode.VelocityChange);
             }
         }
     }

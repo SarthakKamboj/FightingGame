@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     int maxHealth = 100;
+    public GameObject gameManager;
     void Start()
     {
         health = maxHealth;
@@ -32,7 +33,7 @@ public class Health : MonoBehaviour
     }
 
     void GameOver() {
-        Debug.Log("level over");
+        gameManager.GetComponent<SceneHandler>().RestartLevel();
     }
 
     void UpdateHealthBar()
