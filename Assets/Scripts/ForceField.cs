@@ -7,7 +7,7 @@ public class ForceField : MonoBehaviour
     public GameObject player, ground;
     public Collider forceFieldCollider;
 
-    void Start() {
+    void Awake() {
         DisableCol(player.GetComponent<Collider>());
         foreach (Transform childTransform in ground.transform) {
             DisableCol(childTransform.GetComponent<Collider>());
