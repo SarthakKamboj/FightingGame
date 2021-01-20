@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 8613599113133197917}
   - component: {fileID: 1241532228}
   - component: {fileID: 7708455335076952641}
+  - component: {fileID: 278495579}
   m_Layer: 10
   m_Name: PlayerMesh
   m_TagString: Player
@@ -251,6 +252,22 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   minHealth: 0
   maxHealth: 100
+--- !u!114 &278495579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613599113133197861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e1a0bdfde7c1543aa450d4de11f95a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  score: {fileID: 0}
 --- !u!1 &8613599114014296404
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8613599114014296404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -6.09, z: 9.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8613599112586415608}
