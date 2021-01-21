@@ -2,15 +2,11 @@
 
 public class ClickedLeftMouseBtn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TutorialManager tutorialManager;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if (Input.GetMouseButtonDown(0)) {
+            tutorialManager.MoveOnToNextTutSection();
+        }
     }
 }
