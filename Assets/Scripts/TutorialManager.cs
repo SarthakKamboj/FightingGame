@@ -25,6 +25,7 @@ public class TutorialManager : MonoBehaviour
 
     public void MoveOnToNextTutSection() {
         tutorialSections[tutIdx].gameObject.SetActive(false);
+        Debug.Log(tutorialSections[tutIdx].name + " has been disabled");
         tutIdx += 1;
         if (tutIdx < tutorialSections.Count) {
             tutorialSections[tutIdx].gameObject.SetActive(true);
