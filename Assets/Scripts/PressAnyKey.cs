@@ -4,6 +4,7 @@ using UnityEngine;
 public class PressAnyKey : MonoBehaviour
 {
     public TutorialManager tutorialManager;
+    public KeyCode[] keyCodesToIgnore;
     public float waitTime = 2f;
     bool waiting = true;
 
@@ -19,7 +20,17 @@ public class PressAnyKey : MonoBehaviour
 
     void Update() {
         if (Input.anyKeyDown && !waiting) {
-            tutorialManager.MoveOnToNextTutSection();
+            bool pressedAKeyToIgnore = false;
+            foreach (KeyCode key in keyCodesToIgnore) {
+                pressedAKeyToIgnore = pressedAKeyToIgnore || Input.GetKeyDown(key);
+                
+                if (pressedAKeyToIgnore) {
+                    break;
+                }
+            }
+            if (!pressedAKeyToIgnore) {
+                tutorialManager.MoveOnToNextTutSection();
+            }
         }
     }
 }

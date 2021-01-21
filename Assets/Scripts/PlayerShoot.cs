@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerShoot : MonoBehaviour
     public float explosionImpact = 100f;
     public float upwardsModifier = 10f;
     public LayerMask layerMask;
+    public EnemySpawner enemySpawner;
+    public TextMeshProUGUI killCountText;
     float verticalMouseOffset = 0f;
     Vector3 aimVec;
 
@@ -55,8 +58,10 @@ public class PlayerShoot : MonoBehaviour
             Collider collider = hit.collider;
             if (collider && collider.tag == "Enemy") {
                 Destroy(collider.gameObject);
-                // Rigidbody goRb = hit.rigidbody;
-                // goRb.AddExplosionForce(explosionImpact, hit.point, collider.bounds.extents.x, upwardsModifier, ForceMode.VelocityChange);
+                if (enemySpawner) {
+                    enemySpawner.GenEnemy();
+                }
+                killCountText.text = (int.Parse(killCountText.text)+1).ToString();
             }
         }
     }

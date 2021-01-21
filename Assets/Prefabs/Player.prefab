@@ -301,6 +301,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2560
+  enemySpawner: {fileID: 0}
+  killCountText: {fileID: 0}
 --- !u!114 &8613599113133197858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   minHealth: 0
-  maxHealth: 30
+  maxHealth: 100
   gameManager: {fileID: 0}
 --- !u!114 &278495579
 MonoBehaviour:
@@ -380,7 +382,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
-  score: {fileID: 0}
+  gameTime: {fileID: 0}
 --- !u!114 &278495589
 MonoBehaviour:
   m_ObjectHideFlags: 0

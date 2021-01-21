@@ -8,8 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public int numEnemies = 10;
     public GameObject ground;
     public float spawnAreaPadding = 2f;
-    // public Transform randomTransform;
-    // float minX, maxX, minY, maxY, minZ, maxZ;
+    float minSpawnX, maxSpawnX, minSpawnY, maxSpawnY, minSpawnZ, maxSpawnZ;
 
     void Start() {
         float minX = ground.transform.Find("WallLeft").transform.position.x;
@@ -21,19 +20,23 @@ public class EnemySpawner : MonoBehaviour
         GameObject tempEnemy = Instantiate(enemyPrefab, randomPos, Quaternion.Euler(Vector3.up));
         Vector3 enemyExtents = tempEnemy.GetComponent<Collider>().bounds.extents;
 
-        float minSpawnX = minX + enemyExtents.x + spawnAreaPadding;
-        float maxSpawnX = ground.transform.Find("WallRight").transform.position.x - enemyExtents.x - spawnAreaPadding;
-        float minSpawnY = minY + enemyExtents.y + spawnAreaPadding;
-        float maxSpawnY = ground.transform.Find("Floor").transform.position.y - enemyExtents.y - spawnAreaPadding;
-        float minSpawnZ = minZ + enemyExtents.z + spawnAreaPadding;
-        float maxSpawnZ = ground.transform.Find("WallFront").transform.position.z - enemyExtents.z - spawnAreaPadding;
+        minSpawnX = minX + enemyExtents.x + spawnAreaPadding;
+        maxSpawnX = ground.transform.Find("WallRight").transform.position.x - enemyExtents.x - spawnAreaPadding;
+        minSpawnY = minY + enemyExtents.y + spawnAreaPadding;
+        maxSpawnY = ground.transform.Find("Floor").transform.position.y - enemyExtents.y - spawnAreaPadding;
+        minSpawnZ = minZ + enemyExtents.z + spawnAreaPadding;
+        maxSpawnZ = ground.transform.Find("WallFront").transform.position.z - enemyExtents.z - spawnAreaPadding;
 
         while (numEnemies > 0) {
-            Vector3 randomSpawnPoint = new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), Random.Range(minSpawnZ, maxSpawnZ));
-            Instantiate(enemyPrefab, randomSpawnPoint, Quaternion.Euler(Vector3.up));
+            GenEnemy();
             numEnemies -= 1;
         }
     } 
+
+    public void GenEnemy() {
+        Vector3 randomSpawnPoint = new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), Random.Range(minSpawnZ, maxSpawnZ));
+        Instantiate(enemyPrefab, randomSpawnPoint, Quaternion.Euler(Vector3.up));
+    }
 
     
 }

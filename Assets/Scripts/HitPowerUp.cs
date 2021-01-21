@@ -3,11 +3,11 @@
 public class HitPowerUp : MonoBehaviour
 {
     public LayerMask layerMask;
-    public Score score;    
+    public GameTime gameTime;    
 
     void OnTriggerEnter(Collider collider) {
         if (IsPowerUp(collider.gameObject)) {
-            score.scoreDecreaseMultiplier += 1;
+            gameTime.timeDecreaseMultiplier += 1;
             Destroy(collider.gameObject);
         }
     }
