@@ -7,6 +7,7 @@ public class NotifyTutWhenPopwerUpHit : MonoBehaviour
     void OnTriggerEnter(Collider collider) {
         if (collider.tag == "Player") {
             tutorialManager.MoveOnToNextTutSection();
+            transform.parent.gameObject.SetActive(false);
         }
     }
 }

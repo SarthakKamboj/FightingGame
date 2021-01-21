@@ -1460,3 +1460,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688267100b1373b4bb3b31277968360c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infoSections:
+  - key: TimeLeft
+    textMesh: {fileID: 2068481918}
+  - key: KillCount
+    textMesh: {fileID: 493283787}
+  - key: HealthLeft
+    textMesh: {fileID: 1931891925}

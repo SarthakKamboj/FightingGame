@@ -47,4 +47,4 @@ MonoBehaviour:
     type: 3}
   numEnemies: 2
   ground: {fileID: 0}
-  spawnAreaPadding: 2
+  spawnAreaPadding: 20

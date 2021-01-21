@@ -27,10 +27,13 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount) {
         health = Mathf.Clamp(health - amount, minHealth, maxHealth);
         UpdateHealthBar();
-        Debug.Log(health);
         if (health <= 0) {
             gameManager.GetComponent<SceneHandler>().GameOver();
         }
+    }
+
+    void OnDestroy() {
+        PlayerPrefs.SetInt("HealthLeft",health);
     }
 
 

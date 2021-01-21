@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
 
         GameObject tempEnemy = Instantiate(enemyPrefab, randomPos, Quaternion.Euler(Vector3.up));
         Vector3 enemyExtents = tempEnemy.GetComponent<Collider>().bounds.extents;
+        Destroy(tempEnemy);
 
         minSpawnX = minX + enemyExtents.x + spawnAreaPadding;
         maxSpawnX = ground.transform.Find("WallRight").transform.position.x - enemyExtents.x - spawnAreaPadding;

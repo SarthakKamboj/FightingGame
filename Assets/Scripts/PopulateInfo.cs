@@ -4,19 +4,45 @@ using System.Collections;
 
 public class PopulateInfo : MonoBehaviour
 {
-    public TextMeshProUGUI killCount, healthLeft, timeLeft;
+    [SerializeField]
+    private InfoSection[] infoSections;
     
     void Start() {
-        StartCoroutine(Populate());
+        // StartCoroutine(Populate());
+        Populate();
     }
 
-    IEnumerator Populate() {
-        yield return new WaitForSeconds(2 * Time.fixedDeltaTime);
-        TextMeshProUGUI prevKillText = GameObject.FindWithTag("KillCount").GetComponent<TextMeshProUGUI>();
-        killCount.text = prevKillText.text;
+    void Populate() {
+        foreach (InfoSection infoSection in infoSections) {
+            int defaultNum = -1;
 
-        TextMeshProUGUI prevTimeText = GameObject.FindWithTag("TimeLeft").GetComponent<TextMeshProUGUI>();
-        timeLeft.text = prevTimeText.text;
+            float f = PlayerPrefs.GetFloat(infoSection.key, (float) defaultNum);
+            if (f != (float) defaultNum) {
+                infoSection.textMesh.text = f.ToString();
+                return;
+            }
+
+            int i = PlayerPrefs.GetInt(infoSection.key, defaultNum);
+            if (i != defaultNum) {
+                infoSection.textMesh.text = i.ToString();
+                return;
+            }
+
+            string defaultString = "foo";
+            string s = PlayerPrefs.GetString(infoSection.key, defaultString);
+            if (s != defaultString) {
+                infoSection.textMesh.text = s;
+                return;
+            }
+
+        }
+        
     }
 
+}
+
+[System.Serializable]
+class InfoSection {
+    public string key;
+    public TextMeshProUGUI textMesh;
 }

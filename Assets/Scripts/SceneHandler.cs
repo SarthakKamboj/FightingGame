@@ -4,10 +4,6 @@ using UnityEngine.SceneManagement;
 public class SceneHandler : MonoBehaviour
 {
 
-    void Start() {
-        Debug.Log(GameObject.Find("KillCount").name);
-    }
-
     public void LoadNextLevel() {
         int nextLevelIdx = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextLevelIdx != SceneManager.sceneCountInBuildSettings) {
