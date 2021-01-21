@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class TutorialManager : MonoBehaviour
 {
+    public SceneHandler sceneHandler;
     List<Transform> tutorialSections = new List<Transform>();
     int tutIdx = 0;
 
@@ -30,7 +31,7 @@ public class TutorialManager : MonoBehaviour
         if (tutIdx < tutorialSections.Count) {
             tutorialSections[tutIdx].gameObject.SetActive(true);
         } else {
-            Debug.Log("finished tutorial");
+            sceneHandler.LoadNextLevel();
         }
     }
     
