@@ -1,10 +1,17 @@
 <h1>Minimalist</h1>
 <p>Minimalist is a game I developed around the theme of minimalism. The essence of the game requires the player to shoot enemies while a timer counts down. But, as the player uses more powerups, the times counts down faster. Therefore, the game rewards the player for being minimalist when it comes to using power ups!</p>
 
-<h3><strong>Important Note: </strong>All the coding scripts can be found in the Scripts folder located inside the Assets folder.</h3>
+<h3>
+<a href="https://sarthakkamboj.itch.io/minimalist">Link to Play the Game</a>
+</h3>
+
+<h3>
+<strong>Important Note: </strong>All the coding scripts can be found in the Scripts folder located inside the Assets folder.
+</h3>
 
 <h3>Programming Related Game Development Concepts Learned</h3>
 <ul>
+    <li>Quaternion calculations</li>
     <li>Enabling and disabling physics collision</li>
     <li>Interfacing with physics forces</li>
     <li>Combining UI with GameObjects to improve game play experience</li>
