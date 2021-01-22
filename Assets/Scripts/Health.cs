@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [HideInInspector]
-    private int health;
+    public int health;
     public HealthBar healthBar;
 
     [SerializeField]
@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     [SerializeField]
     int maxHealth = 100;
     public GameObject gameManager;
+    public SaveInfo saveInfo;
     void Start()
     {
         health = maxHealth;
@@ -28,13 +29,11 @@ public class Health : MonoBehaviour
         health = Mathf.Clamp(health - amount, minHealth, maxHealth);
         UpdateHealthBar();
         if (health <= 0) {
+            saveInfo.SaveVals();
             gameManager.GetComponent<SceneHandler>().GameOver();
         }
     }
 
-    void OnDestroy() {
-        PlayerPrefs.SetInt("HealthLeft",health);
-    }
 
 
     void UpdateHealthBar()

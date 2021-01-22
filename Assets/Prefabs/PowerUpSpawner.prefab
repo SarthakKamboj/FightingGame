@@ -61,5 +61,6 @@ MonoBehaviour:
   spawnPointPrefab: {fileID: 977113369156102294, guid: 41b0f07a358e92f47b502ed76f1e7261,
     type: 3}
   ground: {fileID: 0}
+  yPadding: 2
   timeBetweenPowerUps: 3
-  probOfSpawningPowerUp: 0.2
+  probOfSpawningPowerUp: 0.5

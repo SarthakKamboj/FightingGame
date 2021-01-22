@@ -8,6 +8,7 @@ public class GameTime : MonoBehaviour
     [HideInInspector]
     public int timeDecreaseMultiplier = 1;
     public SceneHandler sceneHandler;
+    public SaveInfo saveInfo;
     
     void Update()
     {
@@ -15,6 +16,7 @@ public class GameTime : MonoBehaviour
         time -= Time.deltaTime * timeDecreaseMultiplier;
 
         if (time <= 0f) {
+            saveInfo.SaveVals();
             sceneHandler.GameOver();
         }
     }

@@ -8,6 +8,13 @@ public class TutorialManager : MonoBehaviour
     int tutIdx = 0;
 
     void Start() {
+
+        float finishedTut = PlayerPrefs.GetInt("FinishedTutorial", -1);
+
+        if (finishedTut != -1) {
+            sceneHandler.LoadNextLevel();
+        }
+
         bool firstRound = true;
         foreach (Transform tutSection in transform) {
             if (firstRound) {
@@ -31,6 +38,7 @@ public class TutorialManager : MonoBehaviour
         if (tutIdx < tutorialSections.Count) {
             tutorialSections[tutIdx].gameObject.SetActive(true);
         } else {
+            PlayerPrefs.SetInt("FinishedTutorial", 1);
             sceneHandler.LoadNextLevel();
         }
     }

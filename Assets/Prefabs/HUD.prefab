@@ -360,10 +360,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de86f1928e8eeca4692028c8c91ae5a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 400
+  time: 300
   timeNumText: {fileID: 3622595978356480656}
   timeDecreaseMultiplier: 1
   sceneHandler: {fileID: 0}
+  saveInfo: {fileID: 0}
 --- !u!1 &3622595977268738490
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,31 +8,21 @@ public class PopulateInfo : MonoBehaviour
     private InfoSection[] infoSections;
     
     void Start() {
-        // StartCoroutine(Populate());
         Populate();
     }
 
     void Populate() {
         foreach (InfoSection infoSection in infoSections) {
-            int defaultNum = -1;
 
-            float f = PlayerPrefs.GetFloat(infoSection.key, (float) defaultNum);
-            if (f != (float) defaultNum) {
+            if (infoSection.dataType == InfoSection.DataType.Float) {
+                float f = PlayerPrefs.GetFloat(infoSection.key);
                 infoSection.textMesh.text = f.ToString();
-                return;
-            }
-
-            int i = PlayerPrefs.GetInt(infoSection.key, defaultNum);
-            if (i != defaultNum) {
+            } else if (infoSection.dataType == InfoSection.DataType.Int) {
+                int i = PlayerPrefs.GetInt(infoSection.key);
                 infoSection.textMesh.text = i.ToString();
-                return;
-            }
-
-            string defaultString = "foo";
-            string s = PlayerPrefs.GetString(infoSection.key, defaultString);
-            if (s != defaultString) {
+            } else if (infoSection.dataType == InfoSection.DataType.String) {
+                string s = PlayerPrefs.GetString(infoSection.key);
                 infoSection.textMesh.text = s;
-                return;
             }
 
         }
@@ -43,6 +33,11 @@ public class PopulateInfo : MonoBehaviour
 
 [System.Serializable]
 class InfoSection {
+    public enum DataType {
+        Int, Float, String
+    };
+
     public string key;
+    public DataType dataType;
     public TextMeshProUGUI textMesh;
 }
