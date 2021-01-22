@@ -2,7 +2,7 @@
 <p>Minimalist is a game I developed around the theme of minimalism. The essence of the game requires the player to shoot enemies while a timer counts down. But, as the player uses more powerups, the times counts down faster. Therefore, the game rewards the player for being minimalist when it comes to using power ups!</p>
 
 <h3>
-<a href="https://sarthakkamboj.itch.io/minimalist">Link to Play the Game</a>
+<a href="https://sarthakkamboj.itch.io/minimalist" target="_blank">Link to Play the Game</a>
 </h3>
 
 <h3>
