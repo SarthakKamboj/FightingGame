@@ -9,6 +9,7 @@
     <li>Interfacing with physics forces</li>
     <li>Combining UI with GameObjects to improve game play experience</li>
     <li>Organize logic into separate components to promote scalability and usability</li>
+    <li>Leveraging Unity time scale</li>
 </ul>
 
 <h3>Tools</h3>
